@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import Countries from "./components/Countries";
 import Search from "./components/Search";
 import "./style.css";
@@ -12,10 +11,18 @@ const App = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("https://restcountries.com/v3.1/all")
+      fetch(
+        "https://restcountries.com/v3.1/all?fields=name,population,capital,area,flags",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((res) => {
           if (!res.ok) {
-            throw Error("Data loading is not successfull");
+            throw Error("Data loading is not successful!");
           } else {
             return res.json();
           }

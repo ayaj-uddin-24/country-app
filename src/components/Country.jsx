@@ -1,11 +1,9 @@
-import React from "react";
-
 const Country = (props) => {
-    const {flags, name, capital, area, population} = props.country;
+  const { flags, name, capital, area, population } = props.country;
 
-    const handleRemoveCountry = (name) => {
-      props.onRemoveCountry(name);
-    }
+  const handleRemoveCountry = (name) => {
+    props.onRemoveCountry(name);
+  };
 
   return (
     <div className="country">
@@ -14,9 +12,14 @@ const Country = (props) => {
       <h3>Capital : {capital}</h3>
       <h3>Area : {area}</h3>
       <h3>Population : {population}</h3>
-      <button className="btn" onClick={() => {
-        handleRemoveCountry(name.common);
-      }}>Remove</button>
+      <button
+        className="btn"
+        onClick={() => {
+          handleRemoveCountry(name.common);
+        }}
+      >
+        Remove
+      </button>
     </div>
   );
 };
